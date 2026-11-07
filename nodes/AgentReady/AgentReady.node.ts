@@ -9,7 +9,7 @@ import type {
 import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 import { CheckRefused, McpSession } from './McpSession';
 
-const VERSION = '0.1.0';
+const VERSION = '0.1.1';
 
 /** Each operation and the Agent Ready Website Audit tool it runs. */
 const TOOLS: Record<string, string> = {
@@ -176,7 +176,8 @@ export class AgentReady implements INodeType {
 		icon: { light: 'file:agentReady.svg', dark: 'file:agentReady.dark.svg' },
 		group: ['transform'],
 		version: [1],
-		subtitle: '={{$parameter["operation"]}}',
+		subtitle:
+			'={{ {"auditPage": "SEO Audit of a Page", "checkAiCrawlerAccess": "Check AI Crawler Access", "checkSiteFiles": "Check Robots.txt, Sitemaps and Llms.txt", "checkAgentReadiness": "Check AI Agent Readiness", "compareWithCompetitor": "Compare With a Competitor\'s Page", "draftLlmsTxt": "Draft an Llms.txt File", "startSiteCrawl": "Start a Site Crawl", "getSiteCrawl": "Get Site Crawl Results"}[$parameter["operation"]] }}',
 		description:
 			'SEO and AI search audit of any web page, AI crawler access, robots.txt, sitemaps, llms.txt and site crawls. No account needed.',
 		defaults: {

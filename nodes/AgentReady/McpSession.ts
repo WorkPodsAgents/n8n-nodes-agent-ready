@@ -69,7 +69,7 @@ export class McpSession {
 
 	private async post(message: IDataObject, session: string): Promise<RpcReply | null> {
 		const response = await this.request(message, session);
-		return parse(String(response.body ?? ''));
+		return reply(response.body);
 	}
 
 	private async request(message: IDataObject, session: string | null): Promise<IN8nHttpFullResponse> {
@@ -97,6 +97,18 @@ export class McpSession {
 		}
 		return response;
 	}
+}
+
+/**
+ * n8n may hand the body over as text, as a Buffer, or already parsed when the server answers with
+ * JSON; take the JSON-RPC reply from whichever arrives.
+ */
+function reply(body: unknown): RpcReply | null {
+	if (body === null || body === undefined) return null;
+	if (typeof body === 'string') return parse(body);
+	if (Buffer.isBuffer(body)) return parse(body.toString('utf8'));
+	if (typeof body === 'object') return body as RpcReply;
+	return parse(String(body));
 }
 
 /** The answer arrives as plain JSON or as server-sent events; either way take the JSON-RPC reply. */
