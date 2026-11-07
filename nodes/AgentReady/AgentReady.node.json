@@ -1,0 +1,13 @@
+{
+	"node": "@workpods/n8n-nodes-agent-ready.agentReady",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Marketing & Content", "Development"],
+	"resources": {
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/WorkPodsAgents/n8n-nodes-agent-ready?tab=readme-ov-file"
+			}
+		]
+	}
+}
