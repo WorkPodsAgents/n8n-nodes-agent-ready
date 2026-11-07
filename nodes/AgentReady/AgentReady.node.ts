@@ -9,7 +9,7 @@ import type {
 import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 import { CheckRefused, McpSession } from './McpSession';
 
-const VERSION = '0.1.1';
+const VERSION = '0.1.2';
 
 /** Each operation and the Agent Ready Website Audit tool it runs. */
 const TOOLS: Record<string, string> = {

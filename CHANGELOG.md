@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Same changes as 0.1.1, which was tagged but not published to npm.
+
 ## 0.1.1
 
 - Fix: results came back as "Agent Ready sent an empty answer" in n8n, because n8n hands over the reply already parsed. The node now reads text, binary and parsed replies.

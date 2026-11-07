@@ -1,6 +1,6 @@
 {
     "name": "@workpods/n8n-nodes-agent-ready",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Agent Ready Website Audit for n8n: SEO and AI search audits of any web page, AI crawler access, robots.txt, sitemaps, llms.txt and site crawls. No account or API key.",
     "license": "MIT",
     "homepage": "https://workpods.ai/tools/agent-ready",
