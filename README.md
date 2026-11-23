@@ -1,6 +1,10 @@
-# Agent Ready Website Audit for n8n
+# Agent Ready: n8n SEO audit node
 
-An n8n community node that runs SEO and AI search audits of any public web page: how Google, ChatGPT, Perplexity and AI agents read it. It needs no account, credentials or API key.
+Agent Ready is a free n8n community node that runs SEO and AI search audits of any public web page, so you can build SEO automation in n8n: scheduled site checks, crawl reports and SEO alerts. It checks how Google, ChatGPT, Perplexity and AI agents read the page, and needs no account, credentials or API key.
+
+## Installation
+
+In n8n, open **Settings > Community Nodes**, choose **Install** and enter `@workpods/n8n-nodes-agent-ready`. See n8n's [community nodes guide](https://docs.n8n.io/integrations/community-nodes/installation/).
 
 ## Operations
 
@@ -19,13 +23,23 @@ Every result has `summary` (one sentence), `reportUrl` (a shareable report page 
 
 A crawl takes a minute or two: start it, wait 20 to 30 seconds (a Wait node), then call Get Site Crawl Results until `result.status` is `done`.
 
-## Installation
-
-In n8n, open **Settings > Community Nodes**, choose **Install** and enter `@workpods/n8n-nodes-agent-ready`. See n8n's [community nodes guide](https://docs.n8n.io/integrations/community-nodes/installation/).
-
 ## Privacy and limits
 
 The checks run on the hosted [Agent Ready Website Audit](https://workpods.ai/tools/agent-ready) server at `mcp.workpods.ai`, which fetches only the public pages you enter. It records the domain and path it checked, never the query string, your IP address or the page text. See the [privacy policy](https://workpods.ai/privacy#agent-ready-mcp). Rate limits apply per caller; when one is reached the node says so in one sentence. It never signs in, submits forms or changes a site, and it does not cover rankings, keyword volumes or backlinks.
+
+## Questions
+
+**Do I need an API key or credentials?**
+No. The node has no credentials to set up. It calls the hosted Agent Ready server at `mcp.workpods.ai`, which fetches the public page you enter and returns the findings. Rate limits apply per caller, and when one is reached the node says so in one sentence.
+
+**Can I run a weekly SEO audit in n8n?**
+Yes. Put a Schedule Trigger before the node, choose SEO Audit of a Page or Start a Site Crawl, and send the `summary` and `reportUrl` to Slack, email or a sheet. For a crawl, add a Wait node and loop on Get Site Crawl Results until `result.status` is `done`.
+
+**Can n8n's AI Agent use it?**
+Yes. The node works as a tool for n8n's AI Agent, so the agent can decide when to audit a page, check AI crawler access or draft an llms.txt while it answers a request. Each result starts with a one-sentence `summary` the agent can quote, followed by the details.
+
+**What does it not check?**
+It reads public pages only. It does not track rankings, keyword volumes or backlinks, and it never signs in, submits forms or changes a site. A site crawl covers up to 50 pages. For larger crawls, rendered-page checks and keyword data, use the Agent Ready Chrome extension.
 
 ## Compatibility
 
@@ -34,3 +48,7 @@ Built and tested with `@n8n/node-cli` 0.55 and n8n nodes API version 1.
 ## License
 
 MIT
+
+## By WorkPods.ai
+
+Agent Ready is built by [WorkPods.ai](https://workpods.ai), an AI SEO agency. The same checks run in the [Agent Ready Chrome extension and CLI](https://github.com/WorkPodsAgents/agent-ready), in [VS Code](https://github.com/WorkPodsAgents/agent-ready-vscode) and in [JetBrains IDEs](https://github.com/WorkPodsAgents/agent-ready-jetbrains). Read more on the [Agent Ready website audit](https://workpods.ai/tools/agent-ready) page, or see [all free WorkPods.ai SEO tools](https://workpods.ai/tools).
