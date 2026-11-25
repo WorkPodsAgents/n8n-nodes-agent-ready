@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- npm description, author and homepage follow the WorkPods.ai naming. No change to the node.
+
 ## 0.1.2
 
 - Same changes as 0.1.1, which was tagged but not published to npm.

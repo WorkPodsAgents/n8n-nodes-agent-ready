@@ -1,7 +1,7 @@
 {
     "name": "@workpods/n8n-nodes-agent-ready",
-    "version": "0.1.2",
-    "description": "n8n SEO audit node: SEO and AI search audits of any web page, AI crawler access, robots.txt, sitemaps, llms.txt and site crawls for SEO automation in n8n workflows and AI agents. No account or API key.",
+    "version": "0.1.3",
+    "description": "Free, open-source checker for how well AI search and AI agents can read and use a website, as an n8n node. Made by WorkPods.ai, an AI SEO agency.",
     "license": "MIT",
     "homepage": "https://workpods.ai/tools/agent-ready",
     "keywords": [
@@ -19,7 +19,8 @@
     ],
     "author": {
         "name": "WorkPods.ai",
-        "email": "yours@workpods.ai"
+        "email": "yours@workpods.ai",
+        "url": "https://workpods.ai"
     },
     "repository": {
         "type": "git",
